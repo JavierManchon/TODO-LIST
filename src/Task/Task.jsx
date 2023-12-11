@@ -30,8 +30,10 @@ function Task({ savedTasks, setSavedTasks }) {
           <h3 className={savedTask.completed ? 'completed' : 'in-progress'}>
             {savedTask.task}
           </h3>
-          {!savedTask.completed ? <Done onClick={() => handleState(index)} /> : null}
-          <Delete onClick={() => handleDelete(index)} />
+          <div className="actions">
+            {!savedTask.completed ? <Done onClick={() => handleState(index)} /> : null}
+            <Delete onClick={() => handleDelete(index)} />
+          </div>
         </div>
       ))}
     </>

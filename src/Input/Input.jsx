@@ -23,7 +23,7 @@ function Input({ addTask }) {
         <>
             <form onSubmit={submitInput}>
                 <input type="text" name="task" value={task} onChange={handleInput}/>
-                <button type="submit">Add task</button>
+                <button type="submit" className='add'>Add task</button>
             </form>
             <h2>Task List</h2>
         </>

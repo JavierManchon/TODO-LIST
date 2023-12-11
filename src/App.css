@@ -1,10 +1,82 @@
-.App {
-  text-align: center;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20vh;
+  background-color: #baa6f7;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  width: 70vw;
+  border-radius: 20px;
+  border: 3px solid black;
+  background-color: white;
+  box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.48);
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.48);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.48);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+form input {
+  width: 60%;
+}
+
+.add, .done, .delete {
+	background-color:#7892c2;
+	border-radius:28px;
+	border:1px solid #4e6096;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+  height: 20px;
+}
+.add:hover, .done:hover, .delete:hover {
+	background-color:#476e9e;
+}
+.add:active, .done:active, .delete:active {
+	position:relative;
+	top:1px;
+}
+
+.done, .delete {
+  transform: scale(0.75);
+}
+
+.done {
+  background-color:#77b55a;
+  border:1px solid #4b8f29;
+  text-shadow:0px 1px 0px #5b8a3c;
+}
+
+.done:hover {
+  background-color:#72b352;
+}
+
+.delete {
+  background-color:#e4685d;
+  border:1px solid #ffffff;
+  text-shadow:0px 1px 0px #b23e35;
+}
+
+.delete:hover {
+  background-color:#eb675e;
+}
+
+.actions {
+  display: flex;
 }
 
 .task {
@@ -17,34 +89,4 @@
 .completed {
   text-decoration: line-through;
   color: green;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

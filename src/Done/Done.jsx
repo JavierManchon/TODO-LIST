@@ -2,7 +2,7 @@ import React from 'react';
 
 function Done({ onClick }) {
   return (
-    <button onClick={onClick}>Done!</button>
+    <button onClick={onClick} className='done'>Done!</button>
   );
 }
 
