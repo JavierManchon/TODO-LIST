@@ -1,6 +1,7 @@
 import React from "react";
 import "./Task.css";
 import Done from "../Done/Done";
+import Delete from "../Delete/Delete";
 
 function Task({ savedTasks, setSavedTasks }) {
   function handleState(index) {
@@ -17,6 +18,11 @@ function Task({ savedTasks, setSavedTasks }) {
     setSavedTasks(updatedTasks);
   }
 
+  function handleDelete(index) {
+    const updatedTask = savedTasks.filter((savedTask, i) => (i !== index));
+    setSavedTasks(updatedTask);
+  }
+
   return (
     <>
       {savedTasks.map((savedTask, index) => (
@@ -25,6 +31,7 @@ function Task({ savedTasks, setSavedTasks }) {
             {savedTask.task}
           </h3>
           {!savedTask.completed ? <Done onClick={() => handleState(index)} /> : null}
+          <Delete onClick={() => handleDelete(index)} />
         </div>
       ))}
     </>
