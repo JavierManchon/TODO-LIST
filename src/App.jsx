@@ -4,12 +4,21 @@ import Input from './Input/Input';
 import React, {useState} from "react";
 import Task from './Task/Task';
 
-function App() {
-  const [savedTasks, setSavedTasks] = useState([]);
+const baseTasks = [
+  { task: "Comprar harina, jamón y pan rallado", completed: true },
+  { task: "Hacer croquetas", completed: true },
+  { task: "Ir al gimnasio", completed: false },
+  { task: "estudiar React", completed: false },
+  { task: "Irme a vivir a Bali", completed: false },
+];
 
-  function addTask({savedTask}) {
-    const newTasks = [...savedTasks, savedTask];
-    setSavedTasks(newTasks);
+function App() {
+  const [savedTasks, setSavedTasks] = useState(baseTasks);
+
+  function addTask({task}) {
+    const savedTask = { task: task, completed: false };
+    const newTaskList = [...savedTasks, savedTask];
+    setSavedTasks(newTaskList);
   }
 
   return (
@@ -17,8 +26,7 @@ function App() {
       <Header />
       <div className="task-list">
         <Input addTask={addTask} />
-        <h2>Task List</h2>
-        <Task savedTasks={savedTasks} />
+        <Task savedTasks={savedTasks} setSavedTasks={setSavedTasks} />
       </div>
     </div>
   );

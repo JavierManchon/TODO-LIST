@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
-function Input(props) {
+function Input({ addTask }) {
     const [task, setTask] = useState("");
 
     function submitInput(e) {
         e.preventDefault();
 
         if (!task) {
-            console.log('Debes añadir una tarea');
+            alert('Debes añadir una tarea');
             return;
         }
 
-        props.addTask({savedTask: task});
+        addTask({task: task, completed: false});
         setTask("");
     };
 
@@ -20,10 +20,13 @@ function Input(props) {
     }
 
     return (
-        <form onSubmit={submitInput}>
-            <input type="text" name="task" value={task} onChange={handleInput}/>
-            <button type="submit">Add task</button>
-        </form>
+        <>
+            <form onSubmit={submitInput}>
+                <input type="text" name="task" value={task} onChange={handleInput}/>
+                <button type="submit">Add task</button>
+            </form>
+            <h2>Task List</h2>
+        </>
     )
 }
 export default Input;

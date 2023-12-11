@@ -1,32 +1,34 @@
-import React, { useState } from 'react';
+import React from "react";
 import "./Task.css";
+import Done from "../Done/Done";
 
-function Task({ savedTasks }) {
-    const [completedTasks, setCompletedTasks] = useState([]);
+function Task({ savedTasks, setSavedTasks }) {
+  function handleState(index) {
+    const updatedTasks = savedTasks.map((savedTask, i) => {
+      if (i === index) {
+        const updatedTask = {
+          task: savedTask.task,
+          completed: true,
+        };
+        return updatedTask;
+      }
+      return savedTask;
+    });
+    setSavedTasks(updatedTasks);
+  }
 
-    function handleState(index) {
-        const updatedCompletedTasks = [...completedTasks, index];
-        setCompletedTasks(updatedCompletedTasks);
-    }
-
-    function isCompleted(index) {
-        return completedTasks.includes(index);
-    }
-
-    return (
-        <>
-            {savedTasks.map((savedTask, index) => (
-                <div key={JSON.stringify(savedTask)} className="task">
-                    <h3 className={isCompleted(index) ? 'completed' : 'in-progress'}>
-                        {savedTask}
-                    </h3>
-                    {!isCompleted(index) && (
-                        <button onClick={() => handleState(index)}>Done!</button>
-                    )}
-                </div>
-            ))}
-        </>
-    );
+  return (
+    <>
+      {savedTasks.map((savedTask, index) => (
+        <div key={index} className="task">
+          <h3 className={savedTask.completed ? 'completed' : 'in-progress'}>
+            {savedTask.task}
+          </h3>
+          {!savedTask.completed ? <Done onClick={() => handleState(index)} /> : null}
+        </div>
+      ))}
+    </>
+  );
 }
 
 export default Task;
