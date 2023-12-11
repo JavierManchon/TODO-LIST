@@ -1,0 +1,11 @@
+.task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.completed {
+    text-decoration: line-through;
+    color: green;
+}
