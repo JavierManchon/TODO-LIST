@@ -5,6 +5,7 @@ import Delete from "../Delete/Delete";
 
 function Task({ savedTasks, setSavedTasks }) {
   function handleState(index) {
+    //savedTasks[index].completed = !savedTasks[index].completed -- Mas simple que iterar en todo el array
     const updatedTasks = savedTasks.map((savedTask, i) => {
       if (i === index) {
         const updatedTask = {
